@@ -80,24 +80,10 @@ with st.sidebar:
     
     st.header("⚙️ Configuration")
     
-    # API Key Handling
-    env_api_key = os.getenv("GEMINI_API_KEY", "")
-    has_env_key = bool(env_api_key and "your_gemini_api_key" not in env_api_key)
-    
-    api_key_input = st.text_input(
-        "Google Gemini API Key",
-        value=env_api_key if has_env_key else "",
-        type="password",
-        placeholder="AIzaSy...",
-        help="Paste your Gemini API key from Google AI Studio. Leave blank to run in Demo / Mock mode."
-    )
-    
-    active_api_key = api_key_input.strip() if api_key_input.strip() else (env_api_key if has_env_key else None)
-    
-    if active_api_key:
-        st.success("🟢 Gemini API Connected", icon="✅")
-    else:
-        st.info("🟡 Running in Smart Demo Mode (No API key required to test!)", icon="💡")
+    # Securely load API Key from .env backend
+    active_api_key = os.getenv("GEMINI_API_KEY", "").strip()
+    if not active_api_key or "your_gemini_api_key" in active_api_key:
+        active_api_key = None
     
     st.markdown("---")
     st.subheader("🎯 Dream Career Target")
