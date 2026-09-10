@@ -44,12 +44,12 @@ An intelligent, interactive AI application designed for **Google Developer Group
   .\.venv\Scripts\activate.bat
   ```
 
-### 2. Configure Your Gemini API Key (Optional for Demo)
-Copy `.env.example` to `.env` or set it in your environment:
+### 2. Configure Your Gemini API Key
+Copy `.env.example` to `.env` and set your key:
 ```env
 GEMINI_API_KEY=your_google_gemini_api_key_here
 ```
-*(You can get a free API key at [Google AI Studio](https://aistudio.google.com/app/apikey) or paste it directly in the app sidebar.)*
+*(You can get a free API key at [Google AI Studio](https://aistudio.google.com/app/apikey). The key is loaded securely from the `.env` backend file.)*
 
 ### 3. Launch the Application
 ```powershell
